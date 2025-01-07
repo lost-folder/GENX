@@ -1,19 +1,21 @@
-import React from 'react'
+import React from "react";
 
-export const Blog = ({blogs, title}) => {
+export const Blog = ({ blogs, title , handleDelete}) => {
+  
+  
+  
+  
   return (
-    <div className='blog-list'>
-    <h2>{title}</h2>
-    
-     { blogs.map(blog=>(
-        <div className='blog-preview' key={blog.id}>
-            
-            <p > desc : {blog.body}</p>
-            <h2> written by : {blog.author}</h2>
-            <h2> title: {blog.title}</h2>
+    <div className="blog-list">
+      <h2>{title}</h2>
+      {blogs.map((blog) => (
+        <div className="blog-preview" key={blog.id}>
+          <h2>{blog.title}</h2>
+          <p>Written by {blog.author}</p>
+          <button onClick={()=>handleDelete(blog.id)}>remove</button>
         </div>
-        ))}
-    
+      ))}
+   
     </div>
-    )
-}
+  );
+};

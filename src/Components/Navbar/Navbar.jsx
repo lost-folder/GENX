@@ -2,10 +2,10 @@ import React from "react";
 
 
 
-function Navbar({title}) {
+function Navbar() {
   return (
     <div className="navbar">
-      <h1 className="h1">{title}</h1>
+      <h1 className="h1">The Dojo Blog</h1>
       <div className="links">
         <a href="/"> Home </a>
         <a href="/create"> New Blog </a>

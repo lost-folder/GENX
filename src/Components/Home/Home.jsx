@@ -1,10 +1,9 @@
 import React from 'react'
 import { useState } from 'react'
+import { Blog } from '../Blog/Blog';
 
-export const Home = ({setNavBarTitle}) => {
- const [typed , setTyped] = useState('Name');
+export const Home = () => {
  
- const [changeName , setChangeName] = useState('Mario')
  
  const [blogs , setBlogs] =useState([
 
@@ -14,29 +13,21 @@ export const Home = ({setNavBarTitle}) => {
 
  ]);
 
- const write =(e)=>{
-    const newTitle = event.target.value;
-    setTyped(event.target.value);
-    setNavBarTitle(newTitle);
- }
- const ClickName =()=>{
-    setChangeName('GENX');
-    
- }
+ const handleDelete = (id) =>{
+   const newBlogs = blogs.filter((blog)=>blog.id !== id);
+
+   setBlogs(newBlogs)
+}
+
+
  
  return (
-    <div >
+    <div className='home' >
     
-    <h2>Homepage</h2>
-    <br/>
-        <button onClick={ClickName}  > Change navbar </button>
+      
+      <Blog blogs={blogs} title="GenX Blogs !" handleDelete={handleDelete}/>
+      <Blog blogs={blogs.filter((blog)=>blog.author === 'mario')} title="Marios Blogs !" handleDelete={handleDelete}/>
         
-        <br style={{padding:"30px"}}/>
-        <input style={{margin:"30px"}} value={typed} onChange={write}></input>
-        <br/>
-        <h1>{typed}</h1>
-    
-    
 
     </div>
   )
