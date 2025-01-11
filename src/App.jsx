@@ -5,7 +5,7 @@ import "./App.css";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import Create from "./Components/Create/Create"
 import { BlogDetails } from "./Components/Blog/BlogDetails";
-import { ErrPage } from "./errPage";
+import { ErrPage } from "./Components/error/ErrPage";
 export const App = () => {
   return (
     <Router>
